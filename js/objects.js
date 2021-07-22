@@ -69,6 +69,23 @@
 
     });
 
+// for (var i = 0; i < shoppers.length; i += 1) {
+//     var discountedAmount = calculateDiscount(shoppers[i].amount, discountThreshold, discountPercentage);
+//     var output = shoppers[i].name + ' is purchasing ' + shoppers[i].amount +
+//         ' of stuff. He will get ' + discountedAmount +
+//         ' off the purchase and pay ' +
+//         (shoppers[i].amount - discountedAmount) + '.';
+//     console.log(output);
+// }
+//     shoppers.forEach(function(shopper){
+//         var discountedAmount = calculateDiscount(shoppers[i].amount, discountThreshold, discountPercentage);
+//         var output = shoppers[0].name + ' is purchasing ' + shoppers[0].amount +
+//             ' of stuff. He will get ' + discountedAmount +
+//             ' off the purchase and pay ' +
+//             (shoppers[i].amount - discountedAmount) + '.';
+//         console.log(output);
+//     }
+
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -81,7 +98,6 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-   // var books = [book1, book2, book3, book4, book5];
 
     var book1 = {
         title: "Eloquent Javascript",
@@ -121,6 +137,7 @@
     };
 var books = [book1, book2, book3, book4, book5];
     console.log(books[0].title);
+    console.log(books[1].title);
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -145,7 +162,48 @@ var books = [book1, book2, book3, book4, book5];
      *      ---
      *      ...
      */
+// books.forEach(function(title,author){
+    var book1 = {
+        title: "Eloquent Javascript",
+        author: {
+            firstName: "Marijin",
+            lastName: "Haverbeke"
+        }
+    }
 
+    var book2 = {
+        title: "Walkaway",
+        author: {
+            firstName: "Cory",
+            lastName: "Doctorow"
+        }
+    }
+    var book3 = {
+        title: "The Salmon of Doubt",
+        author: {
+            firstName: "Douglas",
+            lastName: "Adams"
+        }
+    }
+    var book4 = {
+        title: "A Brief History of Time",
+        author: {
+            firstName: "Stephen",
+            lastName: "Hawking"
+        }
+    }
+    var book5 = {
+        title: "Think and Grow Rich",
+        author: {
+            firstName: "Napoleon",
+            lastName: "Hill"
+        }
+    };
+
+    var books = [book1, book2, book3, book4, book5];
+    books.forEach(function(title,author){
+    console.log(books.title);
+});
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
