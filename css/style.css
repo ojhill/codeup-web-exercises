@@ -1,6 +1,43 @@
 
 .fancy-header {
-
+    text-align: center;
     color: purple; /* single line comment */
     text-decoration: underline;
+}
+h1,h3 {
+    text-decoration: underline;
+    color: olivedrab;
+}
+body {
+    background-image: url('../img/treebackground.jpeg');
+    font-family: "Comic Sans MS";
+}
+li {
+    list-style: none;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+    color: #928692;
+    border-collapse: collapse;
+    border: 3px solid #928692;
+}
+
+thead th:nth-child(1) {
+    width: 30%;
+}
+
+thead th:nth-child(2) {
+    width: 20%;
+}
+
+thead th:nth-child(3) {
+    width: 15%;
+}
+th, td {
+    padding: 20px;
+}
+
+a:hover{
+    color: lawngreen;
 }
