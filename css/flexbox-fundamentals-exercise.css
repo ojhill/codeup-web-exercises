@@ -33,6 +33,9 @@ h2, h3 {
     background: white;
     padding: 1em;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     /* enter needed declarations here */
 }
 
@@ -49,6 +52,7 @@ section:nth-of-type(1) {
     /* enter needed declarations here */
 }
 section:nth-of-type(1) div:last-child {
+    align-self: flex-start;
     /* enter needed declarations here */
 }
 
@@ -79,6 +83,7 @@ section:nth-of-type(3) {
 }
 
 section:nth-of-type(3) h3 {
+    flex-grow: 1;
     /* enter needed declarations here */
 
 }
