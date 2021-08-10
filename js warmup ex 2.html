@@ -48,14 +48,48 @@
 
    */
 
-  function analyzeArray([arr]){
-   for (var i=0; i<arr.length; i++)
-    var lengthOfArray = arr.length
-    var combineResults = lengthOfArray + containsAllStrings
-      if (input !== "string")
-        console.log(containsAllStrings = false)
-    return lengthOfArray containsAllStrings combineResults
+  // function analyzeArray([arr]){
+  //  for (var i=0; i<arr.length; i++)
+  //   var lengthOfArray = arr.length
+  //   var combineResults = lengthOfArray + containsAllStrings
+  //     if (input !== "string")
+  //       console.log(containsAllStrings = false)
+  //   return lengthOfArray containsAllStrings combineResults
+  // }
+  // 8/10/21
+
+    var users = [
+      {
+        firstName: 'bob',
+        lastName: 'Smith'
+      },
+      {
+        firstName: 'BOB',
+        lastName: 'Smith'
+      },
+      {
+        firstName: 'Fred',
+        lastName: 'Smith'
+      },
+      {
+        firstName: 'Cathy',
+        lastName: 'Smith'
+      },
+      {
+        firstName: 'Dawn',
+        lastName: 'Smith'
+      }
+    ]
+    function filterOutBobUsers(users){
+      var outputUsers = []
+      for (var i = 0; i<users.length; i++) {
+    if (users !== "bob" || users !== "BOB") {
+      outputUsers.push(users[i]);
+    }
   }
+      return outputUsers;
+}
+
 </script>
 </body>
 </html>
