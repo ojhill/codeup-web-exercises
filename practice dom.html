@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Warmups</title>
+</head>
+<body>
+<h1 id="goodMorning">Good Morning, Draco!</h1>
+<button id="afternoon">It's afternoon</button>
+<script>
+
+  var btn = document.getElementById('afternoon');
+  var header = document.getElementById('goodMorning');
+  btn.addEventListener('click', function (){
+    header.innerHtml = "Good Afternoon, Draco!";
+  });
+
+
+</script>
+
+
+</body>
+</html>
+
+

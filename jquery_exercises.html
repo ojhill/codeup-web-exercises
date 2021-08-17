@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery exercises</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<h1 class= header id=bigHead>Got Juice?</h1>
+<p class="classyLatin" id="deadLang">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque corporis debitis deserunt doloribus est excepturi illum, laudantium maxime minima neque, nesciunt nostrum officia possimus quasi quod repellat reprehenderit vitae?"
+</p>
+<ul class="bunch" id = "listOStuff">
+    <li>Yup</li>
+    <li>Fo</li>
+    <li>Sho</li>
+</ul>
+
+<div>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi consectetur, cumque dolor ducimus eos error esse expedita explicabo incidunt inventore, iure maiores minima optio quae, qui quisquam sed unde?"
+
+</div>
+<script>
+"use strict";
+    // alert($("#bigHead").html());
+    // // alert("bigHead");
+    // $("#listOStuff")
+    // alert("listOStuff");
+    $(document).ready(function(){
+        $(".header").on("click", function (){
+            $(this).css("background-color","green");
+        });
+        $('p').on('dblclick', function (){
+            $(this).css("font-size","18px");
+        $(".li").hover(function (){
+            $(this).css("color", "red");
+            }),
+            function (){
+            $(this).css("color", "none");
+            });
+        });
+    });
+
+
+
+</script>
+</body>
+</html>
