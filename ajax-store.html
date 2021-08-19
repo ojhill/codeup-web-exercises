@@ -22,10 +22,11 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
- // (function() {
+    (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    $(document).ready(function() {
+    function getData(){
+      $(document).ready(function() {
         $.get("data/inventory.json").done(function (data) {
             console.log(data);
 
@@ -33,23 +34,20 @@
         // TODO: Take the data from inventory.json and append it to the products table
 
         data.forEach(function (tool){
-
-
         $("#insertProducts").append('<tr>' + '<th>' + tool.title + '</th>' + '<th>' + tool.quantity + '</th>' + '<th>' + tool.price + '</th>' + '<th>' + tool.categories + '</th>' + '</tr>');
         });
     });
  });
-        console.log("insertProducts");
-         // $('#refresh').on('click', function (){
-         //     var theClickedButton = $(this);
-         //      $.ajax('data/murals.json').done(function (data){
-         //         var year = data[index].year_installed;
-         //         $(theClickedButton).after('<p>' + year + '</p>');
-         //     });
+  }
+  getData();
+         $('#refresh').on('click', function () {
+             $("#insertProducts").html('');
+              getData();
+         });
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-// })();
+  })();
 </script>
 
 </body>
