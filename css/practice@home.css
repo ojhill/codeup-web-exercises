@@ -1,11 +1,18 @@
 body{
     background-image: url('../img/kidz-tub.jpeg');
         /*background-repeat: repeat;*/
-    background-color: blueviolet;
     font-family: "Comic Sans MS";
-    color: lightgrey;
-}
+    color: deeppink;
 
+}
+p{
+    text-decoration: underline;
+}
+hr{
+    width: 75%;
+    color: deeppink;
+    height: 5px;
+}
 h3{
     margin:auto;
     display:flex;

@@ -7,18 +7,53 @@
 <body>
 <h1 id="goodMorning">Good Morning, Draco!</h1>
 <button id="afternoon">It's afternoon</button>
-<script>
 
-  var btn = document.getElementById('afternoon');
-  var header = document.getElementById('goodMorning');
-  btn.addEventListener('click', function (){
-    header.innerHtml = "Good Afternoon, Draco!";
-  });
+  <section>
+    <button id= first data-number="1">Change Me</button>
+    <button id= second data-number="2">Change Me Too</button>
+    <button id= third data-number="3">Don't forget about me</button>
+    <p id="message"></p>
+  </section>
+  <button id="reset">Reset</button>
 
 
+
+<section>
+  <input type="text" id="wordToDisplay">
+  <button id="displayWord">Display in DOM</button>
+  <p id="word"></p>
+</section>
+<section>
+  <button id="create-an-element">Create an Element</button>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script
 </script>
+  <script>
+$("section button").hover(function(e) {
+  $(e.target).css("background-color", "hotpink");
+},
+        function (e){
+  $(e.target).css("background-color","white");
+});
 
+document.getElementById('afternoon').addEventListener('click', function (){
+  document.getElementById('goodMorning').innerHTML="Good Afternoon, Draco!"
+});
+$("#reset").click(function (){
+  location.reload();
+});
 
+$("#displayWord").on("click", function (){
+  var wordsTyped = $("#wordToDisplay").val();
+  $("#word").html(wordsTyped);
+
+});
+$("#create-an-element").on('click',function (){
+  $(this).after("<p>I am new</p>");
+});
+
+    </script>
 </body>
 </html>
 

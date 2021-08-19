@@ -9,24 +9,42 @@
     <h3>Kyla & Byron</h3>
     <br>
     <hr>
-    <ul>
-        <li>Home</li>
-        <li>School</li>
-        <li>About Kyla
-            <ul>
-                <li>Birthday</li>
-                <li>Favorite Color</li>
-                <li>Favorite Animal</li>
-            </ul>
-        </li>
-        <li>About Byron
-        <ul>
-            <li>Birthday</li>
-            <li>Favorite Color</li>
-            <li>Favorite Animal</li>
-        </ul>
-        </li>
-    </ul>
+    <p>Home</p>
+    <p>School</p>
+    <p>About Kyla</p>
+    <dl>
+        <dt>Birthday</dt>
+        <dd class="invisible">October 8th, 2009</dd>
+
+        <dt>Favorite Color</dt>
+        <dd class="invisible">Blue/Yellow</dd>
+
+        <dt>Favorite Animal</dt>
+        <dd class="invisible">Deer</dd>
+
+    <p>About Byron</p>
+
+        <dt>BirthDay</dt>
+        <dd class="invisible">June 15th, 2011</dd>
+
+        <dt>Favorite Color</dt>
+        <dd class="invisible">Purple/Orange/Red/Green</dd>
+
+        <dt>Favorite Animal</dt>
+        <dd class="invisible">Gorilla</dd>
+    </dl>
+
+    <a href="#" id="info">Info</a>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous"></script>
+    <script>
+        $("#info").on("click",function (){
+            $("dd").toggle("invisible");
+        });
+    </script>
+
+
 
 </body>
 </html>
