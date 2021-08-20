@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox-Maps-Api</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+<div id="map" style="height: 600px; width:600px;"></div>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+    "use strict";
+    mapboxgl.accessToken = mapboxAccess
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center:[-98.4916, 29.4252],
+        zoom:10
+    });
+    geocode("2814 Fredericksburg Rd. San Antonio, TX 78201",mapboxAccess).then(function(results){
+        console.log(results);
+        map.setCenter(results);
+        map.setZoom(19)
+    });
+    var tipTopInfo = {
+        address: "Tip Top Cafe",
+        popupHTML: "<p>S.A. Best CFS</p>"
+    };
+
+    function placeMarkerAndPopup(tipTopInfo, mapboxAccess, map) {
+        geocode(tipTopInfo.address, mapboxAccess).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(tipTopInfo.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+            popup.addTo(map);
+        });
+    }
+
+    placeMarkerAndPopup(tipTopInfo, mapboxAccess, map);
+</script>
+</body>
+</html>

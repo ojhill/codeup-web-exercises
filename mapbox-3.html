@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox-3</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet"/>
+    <style>
+        #map{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+    <script src="https:/api.mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+    "use strict";
+    mapboxgl.accessToken = "pk.eyJ1Ijoib2poaWxsOTgiLCJhIjoiY2tzajE2aGJoMDM5azJvcGhpYXNmd2wwZCJ9.H_rehX1WzWEMiucKVtqMMQ"
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center:[-98.4936, 29.4241],
+        zoom:10
+    });
+    geocode("Whitefish,Montana", mapboxAccess).then(function ({
+
+  });
+
+// whitefish montana 48.4106° N, 114.3353° W
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4861, 29.4260])
+        .addTo(map);
+</script>
+</body>
+</html>
