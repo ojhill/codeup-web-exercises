@@ -3,23 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather-Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
 </head>
 <body>
+<h3 class="head">Weather App</h3>
+<br>
+Place<input type="text" placeholder="City,State"> <button class="searchBtn">Find</button>
+<br>
+<div class="card col-lg-3" style="width: 20%">
+    <div class="card-header">
+        Date
+    </div>
+    <div class="card" style="width: 100%;">
+        <div class="card-header">
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<br>
 <div id="map" style="height:300px; width:100%;"></div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
 <script>
     "use strict";
-    mapboxgl.accessToken = mapboxAccess
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center:[-98.4916, 29.4252],
-        zoom:10
-    });
-    map.setZoom(10);
-    map.setStyle('mapbox://styles/mapbox/satellite-v7');
+    $.get("https://api.openweathermap.org/data/2.5/onecall",{
+        APPID: weatherMapAccess,
+        lat: 29.4252,
+        lon: -98.4916,
+        units: 'imperial',
+        exclude: 'hourly,minutely'
+    }).done(function(data) {
+        console.log(data);
+        console.log(data.daily[0].humidity);
+        console.log(data.daily[0].temp);
+        console.log(data.daily[0].weather[0]);
+        console.log(data.daily[0].pressure);
+        console.log(data.current.dt*1000);
+var temperature = data.daily[0].temp;
+var humidity= data.daily[0].humidity;
+var description= data.daily[0].weather[0];
+var pressure= data.daily[0].pressure;
+
+  });
+
+    // mapboxgl.accessToken = mapboxAccess
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v11',
+    //     center:[-98.4916, 29.4252],
+    //     zoom:10
+    // });
+    // map.setZoom(10);
+    // map.setStyle('mapbox://styles/mapbox/satellite-v7');
 
 
     // var marker = new mapboxgl.Marker()
