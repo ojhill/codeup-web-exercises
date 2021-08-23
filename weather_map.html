@@ -6,72 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-<h3 class="head">Weather App</h3>
+<h3 class="head" style="background-color: cornflowerblue">Weather App</h3>
 <br>
-Place<input type="text" placeholder="City,State"> <button class="searchBtn">Find</button>
+<label for="searchBar">Place</label>
+<input id="searchBar" type="text" placeholder="Enter A City"> <button id="searchBtn">Find</button>
 <br>
-<div class="card col-lg-3" style="width: 20%">
-    <div class="card-header">
-        Date
-    </div>
-    <div class="card" style="width: 100%;">
-        <div class="card-header">
+<div class="row">
+    <div id="card-container"class="col s12 m6">
 
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-        </ul>
+    </div>
+</div>
+<div class="row">
+    <div id="card-container2"class="col s12 m6">
+
+    </div>
+</div>
+<div class="row">
+    <div id="card-container3"class="col s12 m6">
+
+    </div>
+</div>
+<div class="row">
+    <div id="card-container4"class="col s12 m6">
+
+    </div>
+</div>
+<div class="row">
+    <div id="card-container5"class="col s12 m6">
+
     </div>
 </div>
 
-
-
 <br>
-<div id="map" style="height:300px; width:100%;"></div>
+<div id="map" style="height:500px; width:100%;"></div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
+<script src="js/weather_map.js"></script>
 <script>
-    "use strict";
-    $.get("https://api.openweathermap.org/data/2.5/onecall",{
-        APPID: weatherMapAccess,
-        lat: 29.4252,
-        lon: -98.4916,
-        units: 'imperial',
-        exclude: 'hourly,minutely'
-    }).done(function(data) {
-        console.log(data);
-        console.log(data.daily[0].humidity);
-        console.log(data.daily[0].temp);
-        console.log(data.daily[0].weather[0]);
-        console.log(data.daily[0].pressure);
-        console.log(data.current.dt*1000);
-var temperature = data.daily[0].temp;
-var humidity= data.daily[0].humidity;
-var description= data.daily[0].weather[0];
-var pressure= data.daily[0].pressure;
-
-  });
-
-    // mapboxgl.accessToken = mapboxAccess
-    // var map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: 'mapbox://styles/mapbox/streets-v11',
-    //     center:[-98.4916, 29.4252],
-    //     zoom:10
-    // });
-    // map.setZoom(10);
-    // map.setStyle('mapbox://styles/mapbox/satellite-v7');
-
-
-    // var marker = new mapboxgl.Marker()
-    //     .setLngLat([-98.4861, 29.4260])
-    //     .addTo(map);
 </script>
 </body>
 </html>
