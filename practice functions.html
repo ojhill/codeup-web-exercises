@@ -7,33 +7,43 @@
 <body>
 <script>
 
-function isOdd(num){
-return !(num % 2);
+// function isOdd(num){
+// return !(num % 2);
+// }
+//
+// console.log(isOdd(1032));
+// function isEven(num){
+// return (num % 2===0);
+// }
+//
+// console.log(isEven(16));
+//
+// function identity(input){
+//   return input;
+// }
+//
+// console.log(identity(4 >5));
+//
+// function isFive(input){
+//   if(input === 5){
+//     return true;
+//   }else{
+//     return false;
+//   }
+//
+// }
+//
+// console.log(isFive(5));
+function instructorAndCohorts(instructor, cohort){
+    return {
+        Instructor: instructor,
+        Cohort: cohort,
+    };
+
 }
 
-console.log(isOdd(1032));
-function isEven(num){
-return (num % 2===0);
-}
+console.log(instructorAndCohorts("Javier","Draco"));
 
-console.log(isEven(16));
-
-function identity(input){
-  return input;
-}
-
-console.log(identity(4 >5));
-
-function isFive(input){
-  if(input === 5){
-    return true;
-  }else{
-    return false;
-  }
-
-}
-
-console.log(isFive(5));
 </script>
 </body>
 </html>

@@ -15,20 +15,37 @@ function weatherCall(lon, lat) {
 }
 weatherCall();
 
+
+// function backgroundImages(data){
+//     switch (data.current.weather[0]){
+//         case "Clear":
+//             document.body.style.backgroundImage = "url{'/img/clearsky.jpg'}";
+//         break;
+//         case "Rain":
+//         case "mist":
+//             document.body.style.backgroundImage = "url{'/img/rain.jpg'}";
+//         break;
+//         default:
+//             break;
+//     }
+//    backgroundImages();
+//
+// }
     function logData(data){
         console.log(data);
-        console.log(data.daily[0].humidity);
-        console.log(data.daily[0].temp);
-        console.log(data.daily[0].weather[0]);
-        console.log(data.daily[0].pressure);
-        console.log(data.current.dt);
-        console.log(data.daily[0].wind_deg);
-        let date = getDate(data);
+        // console.log(data.daily[0].humidity);
+        // console.log(data.daily[0].temp);
+        // console.log(data.daily[0].weather[0]);
+        // console.log(data.daily[0].pressure);
+        // console.log(data.current.dt);
+        // console.log(data.daily[0].wind_deg);
+        // let date = getDate(data);
+        // let date1 = getDate1(data);
         var card = `
           <div class="card blue-grey darken-1">
             <div class="card-content orange-text">
                 <span class="card-title">Today's Weather</span>
-                <p class="content">${date}</p>
+                <p class="content">${getDate(data.daily[0].dt)}</p>
                 <p class="content">Temperature: ${data.current.temp}</p>
                 <p class="content">Humidity: ${data.current.humidity}</p>
                 <p class="content">Outlook: ${data.current.weather[0].description}</p>
@@ -43,10 +60,10 @@ weatherCall();
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <span class="card-title">Day 1 Weather</span>
-                <p class="content">${date}</p>
-                <p class="content">Temperature: ${data.daily[0].temp.day}</p>
-                <p class="content">Humidity: ${data.daily[0].humidity}</p>
-                <p class="content">Outlook: ${data.daily[0].weather[0].description}</p>
+                <p class="content">${getDate(data.daily[1].dt)}</p>
+                <p class="content">Temperature: ${data.daily[1].temp.day}</p>
+                <p class="content">Humidity: ${data.daily[1].humidity}</p>
+                <p class="content">Outlook: ${data.daily[1].weather[0].description}</p>
                 
             </div>
             <div class="card-action">
@@ -58,10 +75,10 @@ weatherCall();
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <span class="card-title">Day 2 Weather</span>
-                <p class="content">${date}</p>
-                <p class="content">Temperature: ${data.daily[1].temp.day}</p>
-                <p class="content">Humidity: ${data.daily[1].humidity}</p>
-                <p class="content">Outlook: ${data.daily[1].weather[0].description}</p>
+                <p class="content">${getDate(data.daily[2].dt)}</p>
+                <p class="content">Temperature: ${data.daily[2].temp.day}</p>
+                <p class="content">Humidity: ${data.daily[2].humidity}</p>
+                <p class="content">Outlook: ${data.daily[2].weather[0].description}</p>
                 
             </div>
             <div class="card-action">
@@ -73,10 +90,10 @@ weatherCall();
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <span class="card-title">Day 3 Weather</span>
-                <p class="content">${date}</p>
-                <p class="content">Temperature: ${data.daily[2].temp.day}</p>
-                <p class="content">Humidity: ${data.daily[2].humidity}</p>
-                <p class="content">Outlook: ${data.daily[2].weather[0].description}</p>
+                <p class="content">${getDate(data.daily[3].dt)}</p>
+                <p class="content">Temperature: ${data.daily[3].temp.day}</p>
+                <p class="content">Humidity: ${data.daily[3].humidity}</p>
+                <p class="content">Outlook: ${data.daily[3].weather[0].description}</p>
                 
             </div>
             <div class="card-action">
@@ -88,10 +105,10 @@ weatherCall();
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <span class="card-title">Day 4 Weather</span>
-                <p class="content">${date}</p>
-                <p class="content">Temperature: ${data.daily[3].temp.day}</p>
-                <p class="content">Humidity: ${data.daily[3].humidity}</p>
-                <p class="content">Outlook: ${data.daily[3].weather[0].description}</p>
+                <p class="content">${getDate(data.daily[4].dt)}</p>
+                <p class="content">Temperature: ${data.daily[4].temp.day}</p>
+                <p class="content">Humidity: ${data.daily[4].humidity}</p>
+                <p class="content">Outlook: ${data.daily[4].weather[0].description}</p>
                 
             </div>
             <div class="card-action">
@@ -118,16 +135,18 @@ weatherCall();
     // }
     // renderCard(data.daily[0].temp);
 $("#searchBtn").on("click", function(){
-
     // console.log("clicked me");
    var input = $("#searchBar")
     // console.log(input[0].value);
-
    var location= input[0].value
    var coordinatesPromise = getCoordinates(location)
     coordinatesPromise.then(response => {
        var coordinates= response;
-        // console.log(coordinates);
+        console.log(coordinates);
+        marker.setLngLat(coordinates);
+        map.flyTo({
+            center: [coordinates[0],coordinates[1]]
+        })
        weatherCall(coordinates[0],coordinates[1]);
     })
 })
@@ -135,18 +154,27 @@ $("#searchBtn").on("click", function(){
         return geocode(location,mapboxAccess)
 
     }
+    // function onDrag(address){
+    //     var address = ondragend();
+    //     return reverseGeocode(address,mapboxAccess);
+    //
+    // }
+    // onDrag();
 
-    //get current time/date
-    function getDate(data){
-    let date = new Date(data.current.dt * 1000).toLocaleDateString();
+    // get current time/date
+    function getDate(time){
+    let date = new Date(time * 1000).toLocaleDateString();
     return date;
 }
-    // function getDate1(data){
-    //     for(var i=0; i < data.daily.length; i++)
-    //     let date = new Date(data.daily[i].dt * 1000).toLocaleDateString();
-    //     return date;
+//     function getDate(data) {
+//         for (var i = 0; i < 5; i++) {
+//             let date = new Date(data.daily[i].dt * 1000).toLocaleDateString();
+//             // return date;
+//         }
+//         return date;
+        // console.log(getDate1());
     // }
-
+// getDate1(data);
 
     //get wind direction
 //     function windCardinalDirection(data){

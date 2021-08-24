@@ -1,0 +1,18 @@
+body{
+    background-image: url("../img/default.jpg");
+
+}
+label{
+    padding-left: 7px;
+    padding-bottom: 5px;
+    font-size: medium;
+}
+input{
+    padding-left: 20px;
+}
+#head{
+
+}
+#map{
+
+}
