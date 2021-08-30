@@ -30,15 +30,56 @@
     var num = arr[0];
     //loop through all the numbers and multiply all the remaining numbers in the array to the first number(loop should start in the second number in the array)
     for(var i =1; i<arr.length; i++){
+      num*=arr[i];
+
     //return the result
 
-  }
+  }return num;
   }
 
-
+  console.log(getProductOfElements([1, 2, 3]));
+  console.log(getProductOfElements([-2, 5, 10]));
 
   // example getProductOfElements([1, 2, 3]) // 6
   // example getProductOfElements([-2, 5, 10]) // -100
+
+  // TODO: create a function, findTotalYearsOfExperience, that takes in an array of users and returns the total years of experience of all users.
+  /*
+
+      const users = [
+          {
+              firstName: 'Fred',
+              occupation: 'Teacher',
+              yearsOfExperience: 20
+          },
+          {
+              firstName: 'Cathy',
+              occupation: 'Fire Fighter',
+              yearsOfExperience: 7
+          },
+          {
+              firstName: 'Bob',
+              occupation: 'Doctor',
+              yearsOfExperience: 2
+          },
+      ];
+
+      findTotalYearsOfExperience(users) // returns 29
+
+   */
+  Collapse
+
+ function findTotalYearsOfExperience(arr){
+for(var i=0; i<arr.length; i++);
+
+  }
+//look at each users property yearsOfExperience
+  var totalNumberOfYears
+  //add the values of years of experience from each person
+  //store value in variable totalNumberOfYears
+  //return totalNumberOfYears
+
+
 </script>
 </body>
 </html>
